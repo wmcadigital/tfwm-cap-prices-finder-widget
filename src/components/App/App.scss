@@ -1,0 +1,23 @@
+.umbraco-cap-prices-finder {
+  &__results {
+    position: relative;
+  }
+
+  &__controls {
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: flex-end;
+  }
+
+  &__radio {
+    &:focus + .wmnds-btn--secondary {
+      background-color: white;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px #9d5baf;
+    }
+
+    &:checked + .wmnds-btn--secondary {
+      background-color: #ceadd7;
+    }
+  }
+}
