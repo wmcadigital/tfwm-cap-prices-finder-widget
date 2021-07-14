@@ -4,12 +4,14 @@ export interface CapPricesData {
 }
 export interface TramOrBusEntity {
   Company: string;
-  Items?: CapInfo[] | null;
+  Description?: string | null;
+  Items: CapInfo[];
 }
 export interface CapInfo {
   Period: string;
-  'Cap name': string;
+  CapName: string;
   Area: string;
+  AreaLink: string;
   Price: string;
-  'Child price': string;
+  ChildPrice: string;
 }

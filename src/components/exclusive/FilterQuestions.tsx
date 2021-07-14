@@ -16,7 +16,7 @@ const FilterQuestions = (): JSX.Element => {
 
   return (
     <>
-      <div className="umbraco-cap-prices-finder__who wmnds-m-b-lg">
+      <div className="umbraco-cap-prices-finder__ticket-type wmnds-m-b-lg">
         <h3 className="wmnds-m-b-md">Who will be travelling?</h3>
         <div className="wmnds-col-1 wmnds-grid wmnds-grid--spacing-2-sm wmnds-grid--spacing-sm-2-md">
           <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="adult">
@@ -57,12 +57,12 @@ const FilterQuestions = (): JSX.Element => {
               />
               <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">1 day</div>
             </label>
-            <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="3days">
+            <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="3day">
               <input
                 type="radio"
                 className="umbraco-cap-prices-finder__radio wmnds-screenreaders-only"
                 name="ticketLength"
-                id="3days"
+                id="3day"
                 onClick={setTicketLengthFilter}
               />
               <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">3 days</div>

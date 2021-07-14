@@ -1,13 +1,13 @@
 import { createContext } from 'preact';
 import { useReducer } from 'preact/hooks';
 import { ContextProviderProps, CreateContextProps } from 'sharedTypes';
-// import { CapPricesData } from './dataTypes';
-// import data from './data.json';
+import { CapPricesData } from './dataTypes';
+import capsData from './data';
 
 type InitialStateProps = {
-  // capsData: CapPricesData;
+  data: CapPricesData;
   ticketType: null | string; // 'adult' | 'child';
-  ticketLength: null | string; // '1day' | '3days' | '1week';
+  ticketLength: null | string; // '1day' | '3day' | '1week';
   results: null;
 };
 
@@ -22,7 +22,7 @@ type ActionType =
     };
 
 const initialState: InitialStateProps = {
-  // capsData: data.Caps,
+  data: capsData,
   ticketType: null,
   ticketLength: null,
   results: null,
@@ -32,6 +32,13 @@ export const GlobalContext = createContext<CreateContextProps<InitialStateProps,
   initialState,
   () => {},
 ]);
+
+/* const applyFilters = (state: InitialStateProps) => {
+  if (state.ticketLength !== null && state.ticketType !== null){
+    
+  }
+  return null;
+}; */
 
 export const GlobalContextProvider = ({ children }: ContextProviderProps): JSX.Element => {
   const reducer = (state: InitialStateProps, action: ActionType) => {

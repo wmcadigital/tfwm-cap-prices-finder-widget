@@ -1,9 +1,62 @@
-/* eslint-disable react/button-has-type */
 import { GlobalContext } from 'globalState/GlobalStateContext';
 import { useContext } from 'preact/hooks';
 
+// Components
+import Accordion from 'components/shared/Accordion/Accordion';
+import Table from 'components/shared/Table/Table';
+
+// Types
+import { TramOrBusEntity, CapInfo } from 'globalState/dataTypes';
+
 const Results = (): JSX.Element => {
   const [state] = useContext(GlobalContext);
+  const { data } = state;
+
+  /* Table Data */
+  const addNewLine = (col1: string, col2: string, col2Link: string, col3: string) => {
+    const dataLine = [];
+    dataLine.push(
+      <span>
+        <b>{col1}</b>
+      </span>
+    );
+    if (col2Link !== null && col2Link !== '') {
+      dataLine.push(
+        <a href={col2Link} className="wmnds-link">
+          {col2}
+        </a>
+      );
+    } else {
+      dataLine.push(<span>{col2}</span>);
+    }
+    dataLine.push(<span>{col3}</span>);
+    return dataLine;
+  };
+  /* End of Table Data */
+
+  const addCompanyAccordion = (company: TramOrBusEntity): JSX.Element => {
+    const tableData: JSX.Element[][] = [];
+    return (
+      <Accordion title={company.Company} className="wmnds-m-b-md">
+        {company.Items.filter(
+          (it: CapInfo) => it.Period.toLowerCase() === state.ticketLength?.substring(1)
+        ).map((item: CapInfo) => {
+          const price = state.ticketType === 'adult' ? item.Price : item.ChildPrice;
+          tableData.push(addNewLine(item.CapName, item.Area, item.AreaLink, price));
+          return true;
+        })}
+        {company.Description && <p>{company.Description}</p>}
+        <Table
+          title=""
+          caption=""
+          headers={['Cap name', 'Area', 'Price']}
+          classes="umbraco-cap-prices-finder__table"
+          cellClasses={['bold', 'bold', 'bold']}
+          values={tableData}
+        />
+      </Accordion>
+    );
+  };
 
   return (
     <>
@@ -30,55 +83,9 @@ const Results = (): JSX.Element => {
             </div>
           </div>
           <h3 className="wmnds-m-b-lg wmnds-p-t-sm">Tram</h3>
-          <div className="wmnds-accordion">
-            <button
-              aria-controls="accordion-01"
-              className="wmnds-accordion__summary-wrapper"
-              aria-expanded="false"
-            >
-              {/* {/* <!-- accordion summary --> */}
-              <div className="wmnds-accordion__summary">
-                <h4 className="wmnds-m-b-none">Accordion 1 heading</h4>
-              </div>
-              {/* <!-- plus icon --> */}
-              <svg className="wmnds-accordion__icon">
-                <use xlinkHref="#wmnds-general-expand" href="#wmnds-general-expand" />
-              </svg>
-              {/* <!-- minus icon --> */}
-              <svg className="wmnds-accordion__icon wmnds-accordion__icon--minimise">
-                <use xlinkHref="#wmnds-general-minimise" href="#wmnds-general-minimise" />
-              </svg>
-            </button>
-            {/* <!-- accordion content --> */}
-            <div className="wmnds-accordion__content" id="accordion-01">
-              Lorem ipsum dolar sit...
-            </div>
-          </div>
+          {data.Tram && data.Tram.map((company: TramOrBusEntity) => addCompanyAccordion(company))}
           <h3 className="wmnds-m-b-lg">Bus</h3>
-          <div className="wmnds-accordion">
-            <button
-              aria-controls="accordion-01"
-              className="wmnds-accordion__summary-wrapper"
-              aria-expanded="false"
-            >
-              {/* <!-- accordion summary --> */}
-              <div className="wmnds-accordion__summary">
-                <h4 className="wmnds-m-b-none">Accordion 2 heading</h4>
-              </div>
-              {/* <!-- plus icon --> */}
-              <svg className="wmnds-accordion__icon">
-                <use xlinkHref="#wmnds-general-expand" href="#wmnds-general-expand" />
-              </svg>
-              {/* <!-- minus icon --> */}
-              <svg className="wmnds-accordion__icon wmnds-accordion__icon--minimise">
-                <use xlinkHref="#wmnds-general-minimise" href="#wmnds-general-minimise" />
-              </svg>
-            </button>
-            {/* <!-- accordion content --> */}
-            <div className="wmnds-accordion__content" id="accordion-01">
-              Lorem ipsum dolar sit...
-            </div>
-          </div>
+          {data.Bus && data.Bus.map((company: TramOrBusEntity) => addCompanyAccordion(company))}
         </div>
       )}
     </>
