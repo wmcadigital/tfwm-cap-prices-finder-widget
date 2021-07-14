@@ -22,7 +22,7 @@ const capsData = {
         {
           Period: 'Day',
           CapName: 'NX + Metro Day Off Peak',
-          Area: 'NX Buses + All Trams',
+          Area: 'NX buses + All Trams',
           AreaLink: '',
           Price: '£5.60',
           ChildPrice: '',
@@ -54,7 +54,7 @@ const capsData = {
         {
           Period: 'Week',
           CapName: 'NX + Metro Week',
-          Area: 'NX Busses + All trams',
+          Area: 'NX buses + All trams',
           AreaLink: '',
           Price: '£25.90',
           ChildPrice: '',
