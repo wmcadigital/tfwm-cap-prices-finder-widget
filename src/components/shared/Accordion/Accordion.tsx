@@ -1,3 +1,5 @@
+import Icon from 'components/shared/Icon/Icon';
+
 type AccordionProps = {
   children: React.ReactNode;
   className?: string;
@@ -20,14 +22,15 @@ const Accordion = ({ title, children, className }: AccordionProps): JSX.Element 
       <div className="wmnds-accordion__summary">
         <h4 className="wmnds-m-b-none">{title}</h4>
       </div>
+
       {/* <!-- plus icon --> */}
-      <svg className="wmnds-accordion__icon">
-        <use xlinkHref="#wmnds-general-expand" href="#wmnds-general-expand" />
-      </svg>
+      <Icon className="wmnds-accordion__icon" iconName="general-expand" />
+
       {/* <!-- minus icon --> */}
-      <svg className="wmnds-accordion__icon wmnds-accordion__icon--minimise">
-        <use xlinkHref="#wmnds-general-minimise" href="#wmnds-general-minimise" />
-      </svg>
+      <Icon
+        className="wmnds-accordion__icon wmnds-accordion__icon--minimise"
+        iconName="general-minimise"
+      />
     </button>
     {/* <!-- accordion content --> */}
     <div className="wmnds-accordion__content" id={title.replace(' ', '-')}>
