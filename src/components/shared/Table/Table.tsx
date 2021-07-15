@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-
 type TableProps = {
   title: string | null;
   caption: string | null;
@@ -47,7 +46,7 @@ const Table = ({
             {values.map((line: JSX.Element[], lineIndex: number) => (
               <tr key={`line${lineIndex}`}>
                 {line &&
-                  line.map((col: any, index: number) => {
+                  line.map((col: JSX.Element, index: number) => {
                     if (index === 0)
                       return (
                         <th

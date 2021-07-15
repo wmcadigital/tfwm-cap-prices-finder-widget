@@ -5,6 +5,7 @@ import { useContext } from 'preact/hooks';
 import Accordion from 'components/shared/Accordion/Accordion';
 import Table from 'components/shared/Table/Table';
 import Controls from 'components/shared/Controls/Controls';
+import { ReplaceTextWithIcon } from 'components/shared/Icon/NIcon';
 
 // Types
 import { TramOrBusEntity, CapInfo } from 'globalState/dataTypes';
@@ -15,20 +16,22 @@ const Results = (): JSX.Element => {
 
   /* Table Data */
   const addNewLine = (col1: string, col2: string, col2Link: string, col3: string) => {
+    const column1 = <ReplaceTextWithIcon htmlElement={col1} />;
+    const column2 = <ReplaceTextWithIcon htmlElement={col2} />;
     const dataLine = [];
     dataLine.push(
       <span>
-        <b>{col1}</b>
+        <b>{column1}</b>
       </span>
     );
     if (col2Link !== null && col2Link !== '') {
       dataLine.push(
         <a href={col2Link} className="wmnds-link">
-          {col2}
+          {column2}
         </a>
       );
     } else {
-      dataLine.push(<span>{col2}</span>);
+      dataLine.push(<span>{column2}</span>);
     }
     dataLine.push(<span>{col3}</span>);
     return dataLine;
@@ -47,6 +50,7 @@ const Results = (): JSX.Element => {
           return true;
         })}
         {company.Description && <p>{company.Description}</p>}
+
         <Table
           title=""
           caption=""
