@@ -26,9 +26,11 @@ const FilterQuestions = (): JSX.Element => {
               name="ticketOwner"
               id="adult"
               onClick={setTicketTypeFilter}
+              checked
             />
             <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">Adult</div>
           </label>
+          {/* 
           <label className="wmnds-col-2-3 wmnds-col-lg-auto" htmlFor="child">
             <input
               type="radio"
@@ -39,8 +41,9 @@ const FilterQuestions = (): JSX.Element => {
             />
             <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">
               Young person (5-18)
-            </div>
+            </div> 
           </label>
+          */}
         </div>
       </div>
       {state.ticketType != null && (
@@ -57,7 +60,7 @@ const FilterQuestions = (): JSX.Element => {
               />
               <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">1 day</div>
             </label>
-            <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="3day">
+            {/* <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="3day">
               <input
                 type="radio"
                 className="tfwm-cap-prices-finder__radio wmnds-screenreaders-only"
@@ -66,7 +69,7 @@ const FilterQuestions = (): JSX.Element => {
                 onClick={setTicketLengthFilter}
               />
               <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">3 days</div>
-            </label>
+            </label> */}
             <label className="wmnds-col-1-3 wmnds-col-lg-1-5" htmlFor="1week">
               <input
                 type="radio"

@@ -22,7 +22,7 @@ type ActionType =
 
 const initialState: InitialStateProps = {
   data: capsData,
-  ticketType: null,
+  ticketType: 'adult',
   ticketLength: null,
 };
 
