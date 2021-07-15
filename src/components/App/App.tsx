@@ -6,7 +6,7 @@ import './App.scss';
 
 const App = (): JSX.Element => (
   <GlobalContextProvider>
-    <div className="umbraco-cap-prices-finder">
+    <div className="tfwm-cap-prices-finder">
       <div className="wmnds-p-sm wmnds-col-1">
         <Intro />
         <FilterQuestions />

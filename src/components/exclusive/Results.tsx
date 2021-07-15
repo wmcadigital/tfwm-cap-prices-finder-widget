@@ -4,6 +4,7 @@ import { useContext } from 'preact/hooks';
 // Components
 import Accordion from 'components/shared/Accordion/Accordion';
 import Table from 'components/shared/Table/Table';
+import Controls from 'components/shared/Controls/Controls';
 
 // Types
 import { TramOrBusEntity, CapInfo } from 'globalState/dataTypes';
@@ -50,7 +51,7 @@ const Results = (): JSX.Element => {
           title=""
           caption=""
           headers={['Cap name', 'Area', 'Price']}
-          classes="umbraco-cap-prices-finder__table"
+          classes="tfwm-cap-prices-finder__table"
           cellClasses={['bold', 'bold', 'bold']}
           values={tableData}
         />
@@ -61,27 +62,8 @@ const Results = (): JSX.Element => {
   return (
     <>
       {state.ticketType !== null && state.ticketLength !== null && (
-        <div className="umbraco-cap-prices-finder__results">
-          <div className="umbraco-cap-prices-finder__controls wmnds-grid wmnds-grid--spacing-2-sm wmnds-grid--spacing-sm-2-md">
-            <div className="wmnds-col-1-5">
-              <button
-                className="wmnds-btn wmnds-btn--primary wmnds-btn--block"
-                type="button"
-                aria-label="Open all"
-              >
-                Open all
-              </button>
-            </div>
-            <div className="wmnds-col-1-5">
-              <button
-                className="wmnds-btn wmnds-btn--primary wmnds-btn--block"
-                type="button"
-                aria-label="Close all"
-              >
-                Close all
-              </button>
-            </div>
-          </div>
+        <div className="tfwm-cap-prices-finder__results">
+          <Controls />
           <h3 className="wmnds-m-b-lg wmnds-p-t-sm">Tram</h3>
           {data.Tram && data.Tram.map((company: TramOrBusEntity) => addCompanyAccordion(company))}
           <h3 className="wmnds-m-b-lg">Bus</h3>

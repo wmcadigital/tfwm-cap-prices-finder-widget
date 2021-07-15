@@ -8,7 +8,6 @@ type InitialStateProps = {
   data: CapPricesData;
   ticketType: null | string; // 'adult' | 'child';
   ticketLength: null | string; // '1day' | '3day' | '1week';
-  results: null;
 };
 
 type ActionType =
@@ -25,20 +24,12 @@ const initialState: InitialStateProps = {
   data: capsData,
   ticketType: null,
   ticketLength: null,
-  results: null,
 };
 
 export const GlobalContext = createContext<CreateContextProps<InitialStateProps, ActionType>>([
   initialState,
   () => {},
 ]);
-
-/* const applyFilters = (state: InitialStateProps) => {
-  if (state.ticketLength !== null && state.ticketType !== null){
-    
-  }
-  return null;
-}; */
 
 export const GlobalContextProvider = ({ children }: ContextProviderProps): JSX.Element => {
   const reducer = (state: InitialStateProps, action: ActionType) => {
