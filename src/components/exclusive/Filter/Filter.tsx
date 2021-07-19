@@ -24,14 +24,24 @@ const Filter = ({
   isChecked,
 }: FilterProps): JSX.Element => (
   <label className={className} htmlFor={id}>
-    <input
-      type="radio"
-      className={`${inputClasses} wmnds-screenreaders-only`}
-      name={name}
-      id={id}
-      onClick={handleClick}
-      checked={isChecked}
-    />
+    {isChecked ? (
+      <input
+        type="radio"
+        className={`${inputClasses} wmnds-screenreaders-only`}
+        name={name}
+        id={id}
+        onClick={handleClick}
+        checked={isChecked}
+      />
+    ) : (
+      <input
+        type="radio"
+        className={`${inputClasses} wmnds-screenreaders-only`}
+        name={name}
+        id={id}
+        onClick={handleClick}
+      />
+    )}
     <div className="wmnds-btn wmnds-btn--secondary wmnds-btn--block">{text}</div>
   </label>
 );

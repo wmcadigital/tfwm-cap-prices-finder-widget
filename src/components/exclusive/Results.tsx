@@ -40,26 +40,33 @@ const Results = (): JSX.Element => {
 
   const addCompanyAccordion = (company: TramOrBusEntity): JSX.Element => {
     const tableData: JSX.Element[][] = [];
+    const results: CapInfo[] = company.Items.filter(
+      (it: CapInfo) =>
+        it.Period.toLowerCase() === state.ticketLength?.substring(1) ||
+        it.Period.toLowerCase() === state.ticketLength
+    );
     return (
-      <Accordion title={company.Company} className="wmnds-m-b-md">
-        {company.Items.filter(
-          (it: CapInfo) => it.Period.toLowerCase() === state.ticketLength?.substring(1)
-        ).map((item: CapInfo) => {
-          const price = state.ticketType === 'adult' ? item.Price : item.ChildPrice;
-          tableData.push(addNewLine(item.CapName, item.Area, item.AreaLink, price));
-          return true;
-        })}
-        {company.Description && <p>{company.Description}</p>}
+      <>
+        {results.length > 0 && (
+          <Accordion title={company.Company} className="wmnds-m-b-md">
+            {results.map((item: CapInfo) => {
+              const price = state.ticketType === 'adult' ? item.Price : item.ChildPrice;
+              tableData.push(addNewLine(item.CapName, item.Area, item.AreaLink, price));
+              return true;
+            })}
+            {company.Description && <p>{company.Description}</p>}
 
-        <Table
-          title=""
-          caption=""
-          headers={['Cap name', 'Area', 'Price']}
-          classes="tfwm-cap-prices-finder__table"
-          cellClasses={['bold', 'bold', 'bold']}
-          values={tableData}
-        />
-      </Accordion>
+            <Table
+              title=""
+              caption=""
+              headers={['Cap name', 'Area', 'Price']}
+              classes="tfwm-cap-prices-finder__table"
+              cellClasses={['bold', 'bold', 'bold']}
+              values={tableData}
+            />
+          </Accordion>
+        )}
+      </>
     );
   };
 

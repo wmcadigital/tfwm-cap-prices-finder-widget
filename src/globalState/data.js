@@ -490,7 +490,7 @@ const capsData = {
           ChildPrice: '',
         },
         {
-          Period: 'Week',
+          Period: '3Days',
           CapName: 'Community Transport 3 Day',
           Area: 'All routes',
           AreaLink: '',

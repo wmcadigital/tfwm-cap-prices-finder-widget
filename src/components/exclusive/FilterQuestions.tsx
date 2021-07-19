@@ -7,12 +7,12 @@ const FilterQuestions = (): JSX.Element => {
   const [state, dispatch] = useContext(GlobalContext);
 
   const setTicketTypeFilter = (e: MouseEvent): void => {
-    const target = e.target as HTMLButtonElement;
+    const target = e.target as HTMLInputElement;
     if (target) dispatch({ payload: target?.id, type: 'SET_TICKET_TYPE' });
   };
 
   const setTicketLengthFilter = (e: MouseEvent): void => {
-    const target = e.target as HTMLButtonElement;
+    const target = e.target as HTMLInputElement;
     if (target) dispatch({ payload: target?.id, type: 'SET_TICKET_LENGTH' });
   };
 
@@ -54,15 +54,14 @@ const FilterQuestions = (): JSX.Element => {
               inputClasses="tfwm-cap-prices-finder__radio"
               handleClick={setTicketLengthFilter}
             />
-            {/*             
             <Filter
-              text="3 days"
+              text="3 day"
               name="ticketLength"
-              id="3day"
+              id="3days"
               className="wmnds-col-1-3 wmnds-col-lg-1-5"
               inputClasses="tfwm-cap-prices-finder__radio"
               handleClick={setTicketLengthFilter}
-            /> */}
+            />
             <Filter
               text="1 week"
               name="ticketLength"
