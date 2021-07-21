@@ -25,7 +25,7 @@ const Controls = (): JSX.Element => {
 
   return (
     <div className="tfwm-cap-prices-finder__controls wmnds-grid wmnds-grid--spacing-2-sm wmnds-grid--spacing-sm-2-md">
-      <div className="wmnds-col-1-5">
+      <div className="wmnds-col-1-2 wmnds-col-md-1-5">
         <button
           className="wmnds-btn wmnds-btn--primary wmnds-btn--block"
           type="button"
@@ -35,7 +35,7 @@ const Controls = (): JSX.Element => {
           Open all
         </button>
       </div>
-      <div className="wmnds-col-1-5">
+      <div className="wmnds-col-1-2 wmnds-col-md-1-5">
         <button
           className="wmnds-btn wmnds-btn--primary wmnds-btn--block"
           type="button"

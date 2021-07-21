@@ -2,10 +2,9 @@ import { createContext } from 'preact';
 import { useReducer } from 'preact/hooks';
 import { ContextProviderProps, CreateContextProps } from 'sharedTypes';
 import { CapPricesData } from './dataTypes';
-import capsData from './data';
 
 type InitialStateProps = {
-  data: CapPricesData;
+  data: CapPricesData | null;
   ticketType: null | string; // 'adult' | 'child';
   ticketLength: null | string; // '1day' | '3day' | '1week';
 };
@@ -18,10 +17,14 @@ type ActionType =
   | {
       payload: string;
       type: 'SET_TICKET_LENGTH';
+    }
+  | {
+      payload: CapPricesData;
+      type: 'SET_DATA';
     };
 
 const initialState: InitialStateProps = {
-  data: capsData,
+  data: null,
   ticketType: 'adult',
   ticketLength: null,
 };
@@ -43,6 +46,11 @@ export const GlobalContextProvider = ({ children }: ContextProviderProps): JSX.E
         return {
           ...state,
           ticketLength: action.payload,
+        };
+      case 'SET_DATA':
+        return {
+          ...state,
+          data: action.payload,
         };
       default:
         return initialState;

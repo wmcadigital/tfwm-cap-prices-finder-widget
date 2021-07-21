@@ -41,9 +41,7 @@ const Results = (): JSX.Element => {
   const addCompanyAccordion = (company: TramOrBusEntity): JSX.Element => {
     const tableData: JSX.Element[][] = [];
     const results: CapInfo[] = company.Items.filter(
-      (it: CapInfo) =>
-        it.Period.toLowerCase() === state.ticketLength?.substring(1) ||
-        it.Period.toLowerCase() === state.ticketLength
+      (it: CapInfo) => it.Period.toLowerCase().substring(2) === state.ticketLength?.substring(1)
     );
     return (
       <>
@@ -72,12 +70,12 @@ const Results = (): JSX.Element => {
 
   return (
     <>
-      {state.ticketType !== null && state.ticketLength !== null && (
+      {state.ticketType !== null && state.ticketLength !== null && data !== null && (
         <div className="tfwm-cap-prices-finder__results">
           <Controls />
-          <h3 className="wmnds-m-b-lg wmnds-p-t-sm">Tram</h3>
+          {data.Tram && <h3 className="wmnds-m-b-lg wmnds-p-t-sm">Tram</h3>}
           {data.Tram && data.Tram.map((company: TramOrBusEntity) => addCompanyAccordion(company))}
-          <h3 className="wmnds-m-b-lg">Bus</h3>
+          {data.Bus && <h3 className="wmnds-m-b-lg">Bus</h3>}
           {data.Bus && data.Bus.map((company: TramOrBusEntity) => addCompanyAccordion(company))}
         </div>
       )}

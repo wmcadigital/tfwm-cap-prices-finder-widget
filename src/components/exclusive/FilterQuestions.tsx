@@ -1,10 +1,28 @@
+import axios from 'axios';
 import { GlobalContext } from 'globalState/GlobalStateContext';
-import { useContext } from 'preact/hooks';
+import { useContext, useEffect } from 'preact/hooks';
 // Component
 import Filter from 'components/exclusive/Filter/Filter';
 
 const FilterQuestions = (): JSX.Element => {
   const [state, dispatch] = useContext(GlobalContext);
+
+  useEffect(() => {
+    axios
+      .get('https://staging.tfwm.org.uk/shared-with-third-parties/cap-prices-data/')
+      .then(response => {
+        // handle success
+        dispatch({ payload: response?.data, type: 'SET_DATA' });
+      })
+      .catch(error => {
+        // handle error
+        // eslint-disable-next-line no-console
+        console.log(error);
+      })
+      .then(() => {
+        // always executed
+      });
+  }, [dispatch]);
 
   const setTicketTypeFilter = (e: MouseEvent): void => {
     const target = e.target as HTMLInputElement;
