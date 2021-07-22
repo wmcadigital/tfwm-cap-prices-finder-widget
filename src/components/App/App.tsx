@@ -2,6 +2,7 @@ import { GlobalContextProvider } from 'globalState/GlobalStateContext';
 
 // Components
 import Widget from '../exclusive/Widget';
+
 // Styles
 import './App.scss';
 
