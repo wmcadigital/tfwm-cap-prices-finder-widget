@@ -1,6 +1,6 @@
 {
   "name": "tfwm-cap-prices-finder-widget",
-  "version": "0.0.0--dev",
+  "version": "1.0.0",
   "description": "A shareable ticket widget which shows and filters price caps for operators within the West Midlands.",
   "homepage": "https://www.tfwm.org.uk/swift-and-tickets/swift-go/swift-go-cap-prices/",
   "author": "WMCA",
