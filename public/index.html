@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <!-- CHANGE ME -->
-    <title>%REACT_APP_TITLE% - West Midlands Network</title>
+    <title>%REACT_APP_NAME% - West Midlands Network</title>
     <meta name="description" content="%REACT_APP_DESCRIPTION%" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -47,13 +46,13 @@
     <meta name="theme-color" content="#3c1053" />
 
     <!-- SEO Metadata  -->
-    <meta name="title" content="%REACT_APP_TITLE%" />
+    <meta name="title" content="%REACT_APP_NAME%" />
     <meta name="description" content="%REACT_APP_DESCRIPTION%" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="%PUBLIC_URL%" />
-    <meta property="og:title" content="%REACT_APP_TITLE%" />
+    <meta property="og:title" content="%REACT_APP_NAME%" />
     <meta property="og:description" content="%REACT_APP_DESCRIPTION%" />
     <meta
       property="og:image"
@@ -63,7 +62,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="%PUBLIC_URL%" />
-    <meta property="twitter:title" content="%REACT_APP_TITLE%" />
+    <meta property="twitter:title" content="%REACT_APP_NAME%" />
     <meta property="twitter:description" content="%REACT_APP_DESCRIPTION%" />
     <meta
       property="twitter:image"
@@ -79,33 +78,32 @@
       .preview {
         width: 100%;
         max-width: 1100px;
+        min-width: 320px;
         margin: 80px auto;
         border: 1px dashed rgba(0, 0, 0, 0.2);
         position: relative;
+        padding: 16px;
       }
 
       .preview::before {
         content: 'WIDGET PREVIEW';
         position: absolute;
         display: block;
-        top: -18px;
-        font-size: 11px;
+        top: -32px;
+        font-size: 16px;
         color: rgba(0, 0, 0, 0.5);
-        letter-spacing: normal;
       }
     </style>
   </head>
   <body>
-    <div class="preview wmnds-grid">
-      <div class="wmnds-col-3-4" data-widget-host="tfwm-cap-prices-finder"></div>
-    </div>
+    <div data-widget-host="%REACT_APP_NAME%" class="preview"></div>
     <script>
       if (!document.querySelectorAll('.wmnds-hidden-icons').length) {
         // Ajax SVG in, SVGS are referenced in app (Icon component)
         const ajax = new XMLHttpRequest();
         ajax.open(
           'GET',
-          'https://unpkg.com/wmn-design-system@1.7.3/build/img/wmnds-icons.min.svg',
+          'https://unpkg.com/wmn-design-system@%REACT_APP_WMNDS_VERSION%/build/img/wmnds-icons.min.svg',
           true
         );
         ajax.send();

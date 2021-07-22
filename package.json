@@ -1,7 +1,33 @@
 {
-  "name": "komoot-test",
-  "version": "0.1.0",
-  "private": true,
+  "name": "tfwm-cap-prices-finder-widget",
+  "version": "0.0.0--dev",
+  "description": "A shareable ticket widget which shows and filters price caps for operators within the West Midlands.",
+  "homepage": "https://www.tfwm.org.uk/swift-and-tickets/swift-go/swift-go-cap-prices/",
+  "author": "WMCA",
+  "copyright": "WMCA",
+  "main": "build/static/js/build.min.js",
+  "repository": "wmcadigital/tfwm-cap-prices-finder-widget",
+  "keywords": [
+    "travel",
+    "transport",
+    "west midlands",
+    "tickets",
+    "price",
+    "swift"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
