@@ -9,7 +9,7 @@ const FilterQuestions = (): JSX.Element => {
 
   useEffect(() => {
     axios
-      .get('https://staging.tfwm.org.uk/shared-with-third-parties/cap-prices-data/')
+      .get('https://tfwm.org.uk/shared-with-third-parties/cap-prices-data/')
       .then(response => {
         // handle success
         dispatch({ payload: response?.data, type: 'SET_DATA' });
