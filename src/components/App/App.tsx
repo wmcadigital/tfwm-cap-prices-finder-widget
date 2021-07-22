@@ -1,16 +1,15 @@
 import { GlobalContextProvider } from 'globalState/GlobalStateContext';
-import Intro from '../exclusive/Intro';
-import FilterQuestions from '../exclusive/FilterQuestions';
-import Results from '../exclusive/Results';
+
+// Components
+import Widget from '../exclusive/Widget';
+// Styles
 import './App.scss';
 
 const App = (): JSX.Element => (
   <GlobalContextProvider>
     <div className="tfwm-cap-prices-finder">
       <div className="wmnds-p-sm wmnds-col-1">
-        <Intro />
-        <FilterQuestions />
-        <Results />
+        <Widget />
       </div>
     </div>
   </GlobalContextProvider>
