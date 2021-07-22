@@ -30,7 +30,7 @@ const FilterQuestions = (): JSX.Element => {
             handleClick={setTicketTypeFilter}
             isChecked
           />
-          {/*           
+          {/*
             <Filter
               text="Young person (5-18)"
               name="ticketType"
@@ -38,7 +38,7 @@ const FilterQuestions = (): JSX.Element => {
               className="wmnds-col-2-3 wmnds-col-lg-auto"
               inputClasses="tfwm-cap-prices-finder__radio"
               handleClick={setTicketTypeFilter}
-            /> 
+            />
             */}
         </div>
       </div>
